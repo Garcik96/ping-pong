@@ -1,0 +1,90 @@
+
+@import '../../paleta-colores.scss';
+
+.row {
+    background-color: $light-background;
+}
+
+.mat-card {
+    background: $light-accent-background;
+}
+
+.mat-card:not([class*=mat-elevation-z]), canvas {
+    box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072);
+}
+
+::ng-deep {
+    .mat-card-header-text {
+        margin: 0 !important;
+        color: $light-accent;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-outline, 
+    .mat-form-field-label {
+        color: $light-text;
+    }
+    .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline, .mat-form-field.mat-focused .mat-form-field-label {
+        color: $light-accent;
+    }
+    .mat-input-element {
+        caret-color: $light-accent;
+        color: $light-accent-text !important;
+    }
+    .no-padding-bottom .mat-form-field-wrapper {
+        padding-bottom: 0;
+    }
+    .no-margin-bottom.mat-card-content{
+        margin-bottom: 0px !important;
+    }
+    .mat-card-content {
+        margin-bottom: 12px !important;
+    }
+    .mat-raised-button {
+        background-color: $light-accent;
+        color: $light-accent-background;
+    }
+    .mat-error {
+        font-size: 12px;
+    }
+    .mat-card .mat-divider-horizontal {
+        position: unset !important;
+        width: 100% !important;
+    }
+    .mat-divider {
+        border-top-color: $light-text;
+    }
+    .mat-form-field .mat-form-field-label {
+        height: 16px;
+    }
+    input.mat-input-element {
+        height: 17px;
+    }
+}
+
+.padding-top-2 {
+    padding-top: 2.4px;
+}
+
+.margin-top-1 {
+    margin-top: 1px;
+}
+
+.margin-top-5 {
+    margin-top: 5px;
+}
+
+.margin-top-12 {
+    margin-top: 12.5px;
+}
+
+button:focus {
+    outline: 0px;
+}
+
+canvas {
+    width: 100%;
+    height: 500px;
+}

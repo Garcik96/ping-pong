@@ -1,0 +1,51 @@
+<div class="row py-5">
+  <div class="col-4">
+    <form [formGroup]="form">
+      <mat-card class="w-100">
+        <mat-card-header>
+          <mat-card-title>Datos de los jugadores</mat-card-title>
+        </mat-card-header>
+        <mat-card-content [class.no-margin-bottom]="jugador2.invalid && (jugador2.dirty || jugador2.touched)">
+          <mat-form-field appearance="outline" class="w-100" [class.no-padding-bottom]="jugador1.invalid && (jugador1.dirty || jugador1.touched)">
+            <mat-label>Nombre jugador 1</mat-label>
+            <input matInput formControlName="jugador1" autocomplete="off">
+          </mat-form-field>
+          <mat-error class="margin-top-1" *ngIf="jugador1.invalid && (jugador1.dirty || jugador1.touched)">Este campo es obligatorio</mat-error>
+          <mat-form-field appearance="outline" class="w-100 no-padding-bottom">
+            <mat-label>Nombre jugador 2</mat-label>
+            <input matInput formControlName="jugador2" autocomplete="off">
+          </mat-form-field>
+          <mat-error class="margin-top-1" *ngIf="jugador2.invalid && (jugador2.dirty || jugador2.touched)">Este campo es obligatorio</mat-error>
+        </mat-card-content>
+        <mat-divider class="mb-3" [class.margin-top-5]="jugador2.invalid && (jugador2.dirty || jugador2.touched)" [class.mt-4]="!(jugador2.invalid && (jugador2.dirty || jugador2.touched))"></mat-divider>
+        <mat-card-header [class.margin-top-12]="tamPala.invalid && (tamPala.dirty || tamPala.touched)">
+          <mat-card-title>Dificultad</mat-card-title>
+        </mat-card-header>
+        <mat-card-content [class.no-margin-bottom]="velocidad.invalid && (velocidad.dirty || velocidad.touched)">
+          <mat-form-field appearance="outline" class="w-100" [class.no-padding-bottom]="tamPala.invalid && (tamPala.dirty || tamPala.touched)">
+            <mat-label>Tamaño pala</mat-label>
+            <input type="number" min="1" max="10" matInput formControlName="tamPala" autocomplete="off">
+          </mat-form-field>
+          <mat-error class="margin-top-1" *ngIf="tamPala.invalid && (tamPala.dirty || tamPala.touched) && !tamPala.hasError('max') && !tamPala.hasError('min')">Este campo es obligatorio</mat-error>
+          <mat-error class="margin-top-1" *ngIf="tamPala.hasError('max') && (tamPala.dirty || tamPala.touched)">El valor máximo es 10</mat-error>
+          <mat-error class="margin-top-1" *ngIf="tamPala.hasError('min') && (tamPala.dirty || tamPala.touched)">El valor mínimo es 1</mat-error>
+          <mat-form-field appearance="outline" class="w-100 no-padding-bottom">
+            <mat-label>Velocidad</mat-label>
+            <input type="number" min="1" max="20" matInput formControlName="velocidad" autocomplete="off">
+          </mat-form-field>
+          <mat-error *ngIf="velocidad.invalid && (velocidad.dirty || velocidad.touched) && !velocidad.hasError('max') && !velocidad.hasError('min')">Este campo es obligatorio</mat-error>
+          <mat-error class="margin-top-1" *ngIf="velocidad.hasError('max') && (velocidad.dirty || velocidad.touched)">El valor máximo es 20</mat-error>
+          <mat-error class="margin-top-1" *ngIf="velocidad.hasError('min') && (velocidad.dirty || velocidad.touched)">El valor mínimo es 1</mat-error>
+        </mat-card-content>
+        <mat-card-actions class="text-right pb-3" [class.padding-top-2]="velocidad.invalid && (velocidad.dirty || velocidad.touched)">
+          <button *ngIf="!partidaIniciada" type="button" mat-raised-button (click)="instruccionesPartida()">Instrucciones</button>
+          <button *ngIf="!partidaIniciada" type="button" mat-raised-button (click)="iniciarPartida()">Jugar</button>
+          <button class="mr-2" *ngIf="partidaIniciada" type="button" mat-raised-button (click)="terminarPartida()">Terminar</button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  </div>
+  <div class="col-8">
+    <canvas #pingpong></canvas>
+  </div>
+</div>  
